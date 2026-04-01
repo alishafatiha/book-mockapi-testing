@@ -1,4 +1,4 @@
-# 📚 Book API Testing Project
+# 📚 Book Management System Testing Project
 
 ## 📌 Description
 API testing project using Postman for Book Management System.
