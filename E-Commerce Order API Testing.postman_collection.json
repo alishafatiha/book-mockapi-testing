@@ -1,0 +1,532 @@
+{
+  "info": {
+    "_postman_id": "adaca59d-9021-4132-b0c4-653f872431b3",
+    "name": "E-Commerce Order API Testing",
+    "description": "### Welcome to Postman! This is your first collection.\n\nCollections are your starting point for building and testing APIs. You can use this one to:\n\n• Group related requests  \n• Test your API in real-world scenarios  \n• Document and share your requests\n\nUpdate the name and overview whenever you’re ready to make it yours.\n\n[Learn more about Postman Collections.](https://learning.postman.com/docs/collections/collections-overview/)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "53583463",
+    "_collection_link": "https://go.postman.co/collection/53583463-adaca59d-9021-4132-b0c4-653f872431b3?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Validate fetching all books and Validate book structure",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test(\"Response is array\", function () {",
+              "    const data = pm.response.json();",
+              "    pm.expect(data).to.be.an(\"array\");",
+              "});",
+              "",
+              "pm.test(\"Response is not empty\", function () {",
+              "    const data = pm.response.json();",
+              "    pm.expect(data.length).to.be.above(0);",
+              "});",
+              "",
+              "pm.test(\"Each book has correct structure\", function () {",
+              "    const data = pm.response.json();",
+              "",
+              "    data.forEach((book, index) => {",
+              "        pm.expect(book).to.have.property(\"id\");",
+              "        pm.expect(book).to.have.property(\"title\");",
+              "        pm.expect(book).to.have.property(\"author\");",
+              "        pm.expect(book).to.have.property(\"price\");",
+              "",
+              "        pm.expect(book.title).to.be.a(\"string\");",
+              "        pm.expect(book.author).to.be.a(\"string\");",
+              "        pm.expect(book.price).to.be.a(\"string\");",
+              "    });",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "basic"
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseurl}}/book",
+          "host": [
+            "{{baseurl}}"
+          ],
+          "path": [
+            "book"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Fetch book by valid ID",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test(\"Response is array\", function () {",
+              "    const data = pm.response.json();",
+              "    pm.expect(data).to.be.an(\"array\");",
+              "});",
+              "",
+              "pm.test(\"Response is not empty\", function () {",
+              "    const data = pm.response.json();",
+              "    pm.expect(data.length).to.be.above(0);",
+              "});",
+              "",
+              "pm.test(\"Each book has correct structure\", function () {",
+              "    const data = pm.response.json();",
+              "",
+              "    data.forEach((book, index) => {",
+              "        pm.expect(book).to.have.property(\"id\");",
+              "        pm.expect(book).to.have.property(\"title\");",
+              "        pm.expect(book).to.have.property(\"author\");",
+              "        pm.expect(book).to.have.property(\"price\");",
+              "",
+              "        pm.expect(book.title).to.be.a(\"string\");",
+              "        pm.expect(book.author).to.be.a(\"string\");",
+              "        pm.expect(book.price).to.be.a(\"string\");",
+              "    });",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "basic"
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseurl}}/book",
+          "host": [
+            "{{baseurl}}"
+          ],
+          "path": [
+            "book"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Fetch book by invalid ID",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test(\"Response is array\", function () {",
+              "    const data = pm.response.json();",
+              "    pm.expect(data).to.be.an(\"array\");",
+              "});",
+              "",
+              "pm.test(\"Response is not empty\", function () {",
+              "    const data = pm.response.json();",
+              "    pm.expect(data.length).to.be.above(0);",
+              "});",
+              "",
+              "pm.test(\"Each book has correct structure\", function () {",
+              "    const data = pm.response.json();",
+              "",
+              "    data.forEach((book, index) => {",
+              "        pm.expect(book).to.have.property(\"id\");",
+              "        pm.expect(book).to.have.property(\"title\");",
+              "        pm.expect(book).to.have.property(\"author\");",
+              "        pm.expect(book).to.have.property(\"price\");",
+              "",
+              "        pm.expect(book.title).to.be.a(\"string\");",
+              "        pm.expect(book.author).to.be.a(\"string\");",
+              "        pm.expect(book.price).to.be.a(\"string\");",
+              "    });",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "basic"
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseurl}}/book",
+          "host": [
+            "{{baseurl}}"
+          ],
+          "path": [
+            "book"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update book by Id",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code validation\", function () {",
+              "    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+              "});",
+              "",
+              "",
+              "",
+              "pm.test(\"Safe JSON validation\", function () {",
+              "",
+              "    const contentType = pm.response.headers.get(\"Content-Type\") || \"\";",
+              "",
+              "    // 🔥 cek apakah JSON dulu",
+              "    if (contentType.includes(\"application/json\")) {",
+              "",
+              "        const jsonData = pm.response.json();",
+              "        const books = Array.isArray(jsonData) ? jsonData : [jsonData];",
+              "",
+              "        books.forEach((book, index) => {",
+              "",
+              "            // required",
+              "            pm.expect(book).to.have.property(\"id\");",
+              "            pm.expect(book).to.have.property(\"title\");",
+              "            pm.expect(book).to.have.property(\"author\");",
+              "            pm.expect(book).to.have.property(\"price\");",
+              "",
+              "            // not empty",
+              "            pm.expect(book.title).to.not.eql(\"\");",
+              "            pm.expect(book.author).to.not.eql(\"\");",
+              "",
+              "            // type",
+              "            pm.expect(typeof book.id).to.eql(\"string\");",
+              "            pm.expect(typeof book.title).to.eql(\"string\");",
+              "            pm.expect(typeof book.author).to.eql(\"string\");",
+              "            pm.expect(typeof book.price).to.eql(\"number\");",
+              "        });",
+              "",
+              "    } else {",
+              "        // 🔥 HANDLE ERROR RESPONSE",
+              "        pm.test(\"Response is not JSON (API error)\", function () {",
+              "            pm.expect.fail(\"Response is not JSON. Possible server error.\");",
+              "        });",
+              "    }",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Updated Book\",\n  \"author\": \"Updated Author\",\n  \"price\": 200\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://69c9e207ba5984c44bf25a2a.mockapi.io/bookapp/book/5",
+          "protocol": "https",
+          "host": [
+            "69c9e207ba5984c44bf25a2a",
+            "mockapi",
+            "io"
+          ],
+          "path": [
+            "bookapp",
+            "book",
+            "5"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update non-existing book",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code validation\", function () {",
+              "    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+              "});",
+              "",
+              "",
+              "",
+              "pm.test(\"Safe JSON validation\", function () {",
+              "",
+              "    const contentType = pm.response.headers.get(\"Content-Type\") || \"\";",
+              "",
+              "    // 🔥 cek apakah JSON dulu",
+              "    if (contentType.includes(\"application/json\")) {",
+              "",
+              "        const jsonData = pm.response.json();",
+              "        const books = Array.isArray(jsonData) ? jsonData : [jsonData];",
+              "",
+              "        books.forEach((book, index) => {",
+              "",
+              "            // required",
+              "            pm.expect(book).to.have.property(\"id\");",
+              "            pm.expect(book).to.have.property(\"title\");",
+              "            pm.expect(book).to.have.property(\"author\");",
+              "            pm.expect(book).to.have.property(\"price\");",
+              "",
+              "            // not empty",
+              "            pm.expect(book.title).to.not.eql(\"\");",
+              "            pm.expect(book.author).to.not.eql(\"\");",
+              "",
+              "            // type",
+              "            pm.expect(typeof book.id).to.eql(\"string\");",
+              "            pm.expect(typeof book.title).to.eql(\"string\");",
+              "            pm.expect(typeof book.author).to.eql(\"string\");",
+              "            pm.expect(typeof book.price).to.eql(\"number\");",
+              "        });",
+              "",
+              "    } else {",
+              "        // 🔥 HANDLE ERROR RESPONSE",
+              "        pm.test(\"Response is not JSON (API error)\", function () {",
+              "            pm.expect.fail(\"Response is not JSON. Possible server error.\");",
+              "        });",
+              "    }",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"kalsjdk\",\n  \"author\": \"asdnkn\",\n  \"price\": 200\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://69c9e207ba5984c44bf25a2a.mockapi.io/bookapp/book/91",
+          "protocol": "https",
+          "host": [
+            "69c9e207ba5984c44bf25a2a",
+            "mockapi",
+            "io"
+          ],
+          "path": [
+            "bookapp",
+            "book",
+            "91"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Book by Id",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code validation\", function () {",
+              "    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+              "});",
+              "",
+              "",
+              "",
+              "pm.test(\"Safe JSON validation\", function () {",
+              "",
+              "    const contentType = pm.response.headers.get(\"Content-Type\") || \"\";",
+              "",
+              "    // 🔥 cek apakah JSON dulu",
+              "    if (contentType.includes(\"application/json\")) {",
+              "",
+              "        const jsonData = pm.response.json();",
+              "        const books = Array.isArray(jsonData) ? jsonData : [jsonData];",
+              "",
+              "        books.forEach((book, index) => {",
+              "",
+              "            // required",
+              "            pm.expect(book).to.have.property(\"id\");",
+              "            pm.expect(book).to.have.property(\"title\");",
+              "            pm.expect(book).to.have.property(\"author\");",
+              "            pm.expect(book).to.have.property(\"price\");",
+              "",
+              "            // not empty",
+              "            pm.expect(book.title).to.not.eql(\"\");",
+              "            pm.expect(book.author).to.not.eql(\"\");",
+              "",
+              "            // type",
+              "            pm.expect(typeof book.id).to.eql(\"string\");",
+              "            pm.expect(typeof book.title).to.eql(\"string\");",
+              "            pm.expect(typeof book.author).to.eql(\"string\");",
+              "            pm.expect(typeof book.price).to.eql(\"number\");",
+              "        });",
+              "",
+              "    } else {",
+              "        // 🔥 HANDLE ERROR RESPONSE",
+              "        pm.test(\"Response is not JSON (API error)\", function () {",
+              "            pm.expect.fail(\"Response is not JSON. Possible server error.\");",
+              "        });",
+              "    }",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://69c9e207ba5984c44bf25a2a.mockapi.io/bookapp/book/35",
+          "protocol": "https",
+          "host": [
+            "69c9e207ba5984c44bf25a2a",
+            "mockapi",
+            "io"
+          ],
+          "path": [
+            "bookapp",
+            "book",
+            "35"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Invalid Book",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code validation\", function () {",
+              "    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+              "});",
+              "",
+              "",
+              "",
+              "pm.test(\"Safe JSON validation\", function () {",
+              "",
+              "    const contentType = pm.response.headers.get(\"Content-Type\") || \"\";",
+              "",
+              "    // 🔥 cek apakah JSON dulu",
+              "    if (contentType.includes(\"application/json\")) {",
+              "",
+              "        const jsonData = pm.response.json();",
+              "        const books = Array.isArray(jsonData) ? jsonData : [jsonData];",
+              "",
+              "        books.forEach((book, index) => {",
+              "",
+              "            // required",
+              "            pm.expect(book).to.have.property(\"id\");",
+              "            pm.expect(book).to.have.property(\"title\");",
+              "            pm.expect(book).to.have.property(\"author\");",
+              "            pm.expect(book).to.have.property(\"price\");",
+              "",
+              "            // not empty",
+              "            pm.expect(book.title).to.not.eql(\"\");",
+              "            pm.expect(book.author).to.not.eql(\"\");",
+              "",
+              "            // type",
+              "            pm.expect(typeof book.id).to.eql(\"string\");",
+              "            pm.expect(typeof book.title).to.eql(\"string\");",
+              "            pm.expect(typeof book.author).to.eql(\"string\");",
+              "            pm.expect(typeof book.price).to.eql(\"number\");",
+              "        });",
+              "",
+              "    } else {",
+              "        // 🔥 HANDLE ERROR RESPONSE",
+              "        pm.test(\"Response is not JSON (API error)\", function () {",
+              "            pm.expect.fail(\"Response is not JSON. Possible server error.\");",
+              "        });",
+              "    }",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"kalsjdk\",\n  \"author\": \"asdnkn\",\n  \"price\": 200\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://69c9e207ba5984c44bf25a2a.mockapi.io/bookapp/book/70",
+          "protocol": "https",
+          "host": [
+            "69c9e207ba5984c44bf25a2a",
+            "mockapi",
+            "io"
+          ],
+          "path": [
+            "bookapp",
+            "book",
+            "70"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
